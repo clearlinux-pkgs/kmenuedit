@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kmenuedit
-Version  : 5.13.4
-Release  : 1
-URL      : https://download.kde.org/stable/plasma/5.13.4/kmenuedit-5.13.4.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.13.4/kmenuedit-5.13.4.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.13.4/kmenuedit-5.13.4.tar.xz.sig
+Version  : 5.13.5
+Release  : 2
+URL      : https://download.kde.org/stable/plasma/5.13.5/kmenuedit-5.13.5.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.13.5/kmenuedit-5.13.5.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.13.5/kmenuedit-5.13.5.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -19,21 +19,6 @@ Requires: kmenuedit-license
 Requires: kmenuedit-locales
 BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
-BuildRequires : karchive-dev
-BuildRequires : kcrash-dev
-BuildRequires : kdbusaddons-dev
-BuildRequires : kdelibs4support-dev
-BuildRequires : kdesignerplugin-dev
-BuildRequires : kemoticons-dev
-BuildRequires : kguiaddons-dev
-BuildRequires : kinit-dev
-BuildRequires : kitemmodels-dev
-BuildRequires : knotifications-dev
-BuildRequires : kparts-dev
-BuildRequires : ktextwidgets-dev
-BuildRequires : kunitconversion-dev
-BuildRequires : kwindowsystem-dev
-BuildRequires : sonnet-dev
 
 %description
 No detailed description available
@@ -92,14 +77,14 @@ locales components for the kmenuedit package.
 
 
 %prep
-%setup -q -n kmenuedit-5.13.4
+%setup -q -n kmenuedit-5.13.5
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1535145959
+export SOURCE_DATE_EPOCH=1536087353
 mkdir clr-build
 pushd clr-build
 %cmake ..
@@ -107,7 +92,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1535145959
+export SOURCE_DATE_EPOCH=1536087353
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/doc/kmenuedit
 cp COPYING %{buildroot}/usr/share/doc/kmenuedit/COPYING
