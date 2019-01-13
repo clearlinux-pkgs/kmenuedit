@@ -6,7 +6,7 @@
 #
 Name     : kmenuedit
 Version  : 5.14.5
-Release  : 8
+Release  : 9
 URL      : https://download.kde.org/stable/plasma/5.14.5/kmenuedit-5.14.5.tar.xz
 Source0  : https://download.kde.org/stable/plasma/5.14.5/kmenuedit-5.14.5.tar.xz
 Source99 : https://download.kde.org/stable/plasma/5.14.5/kmenuedit-5.14.5.tar.xz.sig
@@ -15,6 +15,7 @@ Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: kmenuedit-bin = %{version}-%{release}
 Requires: kmenuedit-data = %{version}-%{release}
+Requires: kmenuedit-lib = %{version}-%{release}
 Requires: kmenuedit-license = %{version}-%{release}
 Requires: kmenuedit-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
@@ -41,23 +42,22 @@ Group: Data
 data components for the kmenuedit package.
 
 
-%package dev
-Summary: dev components for the kmenuedit package.
-Group: Development
-Requires: kmenuedit-bin = %{version}-%{release}
-Requires: kmenuedit-data = %{version}-%{release}
-Provides: kmenuedit-devel = %{version}-%{release}
-
-%description dev
-dev components for the kmenuedit package.
-
-
 %package doc
 Summary: doc components for the kmenuedit package.
 Group: Documentation
 
 %description doc
 doc components for the kmenuedit package.
+
+
+%package lib
+Summary: lib components for the kmenuedit package.
+Group: Libraries
+Requires: kmenuedit-data = %{version}-%{release}
+Requires: kmenuedit-license = %{version}-%{release}
+
+%description lib
+lib components for the kmenuedit package.
 
 
 %package license
@@ -84,7 +84,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1546964919
+export SOURCE_DATE_EPOCH=1547422704
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -92,7 +92,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1546964919
+export SOURCE_DATE_EPOCH=1547422704
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
 cp COPYING %{buildroot}/usr/share/package-licenses/kmenuedit/COPYING
@@ -121,10 +121,6 @@ popd
 /usr/share/kmenuedit/icons/hicolor/32x32/actions/menu_new.png
 /usr/share/kmenuedit/icons/hicolor/32x32/actions/menu_new_sep.png
 /usr/share/kxmlgui5/kmenuedit/kmenueditui.rc
-
-%files dev
-%defattr(-,root,root,-)
-/usr/lib64/libkdeinit5_kmenuedit.so
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -175,6 +171,10 @@ popd
 /usr/share/doc/HTML/uk/kmenuedit/new.png
 /usr/share/doc/HTML/uk/kmenuedit/selecticon.png
 /usr/share/doc/HTML/uk/kmenuedit/selectinternet.png
+
+%files lib
+%defattr(-,root,root,-)
+/usr/lib64/libkdeinit5_kmenuedit.so
 
 %files license
 %defattr(0644,root,root,0755)
