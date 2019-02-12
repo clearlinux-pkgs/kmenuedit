@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kmenuedit
-Version  : 5.14.5
-Release  : 9
-URL      : https://download.kde.org/stable/plasma/5.14.5/kmenuedit-5.14.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.14.5/kmenuedit-5.14.5.tar.xz
-Source99 : https://download.kde.org/stable/plasma/5.14.5/kmenuedit-5.14.5.tar.xz.sig
+Version  : 5.15.0
+Release  : 10
+URL      : https://download.kde.org/stable/plasma/5.15.0/kmenuedit-5.15.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.15.0/kmenuedit-5.15.0.tar.xz
+Source99 : https://download.kde.org/stable/plasma/5.15.0/kmenuedit-5.15.0.tar.xz.sig
 Summary  : KDE menu editor
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -77,14 +77,14 @@ locales components for the kmenuedit package.
 
 
 %prep
-%setup -q -n kmenuedit-5.14.5
+%setup -q -n kmenuedit-5.15.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C
-export SOURCE_DATE_EPOCH=1547422704
+export SOURCE_DATE_EPOCH=1549993806
 mkdir -p clr-build
 pushd clr-build
 %cmake ..
@@ -92,7 +92,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1547422704
+export SOURCE_DATE_EPOCH=1549993806
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
 cp COPYING %{buildroot}/usr/share/package-licenses/kmenuedit/COPYING
@@ -121,6 +121,7 @@ popd
 /usr/share/kmenuedit/icons/hicolor/32x32/actions/menu_new.png
 /usr/share/kmenuedit/icons/hicolor/32x32/actions/menu_new_sep.png
 /usr/share/kxmlgui5/kmenuedit/kmenueditui.rc
+/usr/share/xdg/kmenuedit.categories
 
 %files doc
 %defattr(0644,root,root,0755)
@@ -130,6 +131,7 @@ popd
 /usr/share/doc/HTML/ca/kmenuedit/itemname.png
 /usr/share/doc/HTML/ca/kmenuedit/new.png
 /usr/share/doc/HTML/ca/kmenuedit/reset.png
+/usr/share/doc/HTML/ca/kmenuedit/selecticon.png
 /usr/share/doc/HTML/ca/kmenuedit/selectinternet.png
 /usr/share/doc/HTML/de/kmenuedit/index.cache.bz2
 /usr/share/doc/HTML/de/kmenuedit/index.docbook
