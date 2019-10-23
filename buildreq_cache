@@ -1,4 +1,4 @@
-5.13.4
+5.17.1
 karchive-dev
 kcrash-dev
 kdbusaddons-dev
@@ -14,3 +14,4 @@ ktextwidgets-dev
 kunitconversion-dev
 kwindowsystem-dev
 sonnet-dev
+util-linux
