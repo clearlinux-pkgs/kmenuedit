@@ -5,17 +5,16 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kmenuedit
-Version  : 5.18.5
-Release  : 36
-URL      : https://download.kde.org/stable/plasma/5.18.5/kmenuedit-5.18.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.18.5/kmenuedit-5.18.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.18.5/kmenuedit-5.18.5.tar.xz.sig
+Version  : 5.19.0
+Release  : 37
+URL      : https://download.kde.org/stable/plasma/5.19.0/kmenuedit-5.19.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.19.0/kmenuedit-5.19.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.19.0/kmenuedit-5.19.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
 Requires: kmenuedit-bin = %{version}-%{release}
 Requires: kmenuedit-data = %{version}-%{release}
-Requires: kmenuedit-lib = %{version}-%{release}
 Requires: kmenuedit-license = %{version}-%{release}
 Requires: kmenuedit-locales = %{version}-%{release}
 BuildRequires : buildreq-cmake
@@ -54,16 +53,6 @@ Group: Documentation
 doc components for the kmenuedit package.
 
 
-%package lib
-Summary: lib components for the kmenuedit package.
-Group: Libraries
-Requires: kmenuedit-data = %{version}-%{release}
-Requires: kmenuedit-license = %{version}-%{release}
-
-%description lib
-lib components for the kmenuedit package.
-
-
 %package license
 Summary: license components for the kmenuedit package.
 Group: Default
@@ -81,15 +70,15 @@ locales components for the kmenuedit package.
 
 
 %prep
-%setup -q -n kmenuedit-5.18.5
-cd %{_builddir}/kmenuedit-5.18.5
+%setup -q -n kmenuedit-5.19.0
+cd %{_builddir}/kmenuedit-5.19.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1588701012
+export SOURCE_DATE_EPOCH=1591733441
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -105,11 +94,11 @@ make  %{?_smp_mflags}  VERBOSE=1
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1588701012
+export SOURCE_DATE_EPOCH=1591733441
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
-cp %{_builddir}/kmenuedit-5.18.5/COPYING %{buildroot}/usr/share/package-licenses/kmenuedit/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/kmenuedit-5.18.5/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmenuedit/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kmenuedit-5.19.0/COPYING %{buildroot}/usr/share/package-licenses/kmenuedit/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/kmenuedit-5.19.0/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmenuedit/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -159,8 +148,14 @@ popd
 /usr/share/doc/HTML/en/kmenuedit/selectinternet.png
 /usr/share/doc/HTML/id/kmenuedit/index.cache.bz2
 /usr/share/doc/HTML/id/kmenuedit/index.docbook
+/usr/share/doc/HTML/it/kmenuedit/done.png
 /usr/share/doc/HTML/it/kmenuedit/index.cache.bz2
 /usr/share/doc/HTML/it/kmenuedit/index.docbook
+/usr/share/doc/HTML/it/kmenuedit/itemname.png
+/usr/share/doc/HTML/it/kmenuedit/new.png
+/usr/share/doc/HTML/it/kmenuedit/selecticon.png
+/usr/share/doc/HTML/it/kmenuedit/selectinternet.png
+/usr/share/doc/HTML/it/kmenuedit/toolbars-toolbar.png
 /usr/share/doc/HTML/nl/kmenuedit/index.cache.bz2
 /usr/share/doc/HTML/nl/kmenuedit/index.docbook
 /usr/share/doc/HTML/pt/kmenuedit/index.cache.bz2
@@ -189,10 +184,6 @@ popd
 /usr/share/doc/HTML/uk/kmenuedit/new.png
 /usr/share/doc/HTML/uk/kmenuedit/selecticon.png
 /usr/share/doc/HTML/uk/kmenuedit/selectinternet.png
-
-%files lib
-%defattr(-,root,root,-)
-/usr/lib64/libkdeinit5_kmenuedit.so
 
 %files license
 %defattr(0644,root,root,0755)
