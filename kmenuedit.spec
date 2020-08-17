@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kmenuedit
-Version  : 5.19.2
-Release  : 39
-URL      : https://download.kde.org/stable/plasma/5.19.2/kmenuedit-5.19.2.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.19.2/kmenuedit-5.19.2.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.19.2/kmenuedit-5.19.2.tar.xz.sig
+Version  : 5.19.4
+Release  : 40
+URL      : https://download.kde.org/stable/plasma/5.19.4/kmenuedit-5.19.4.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.19.4/kmenuedit-5.19.4.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.19.4/kmenuedit-5.19.4.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -70,15 +70,15 @@ locales components for the kmenuedit package.
 
 
 %prep
-%setup -q -n kmenuedit-5.19.2
-cd %{_builddir}/kmenuedit-5.19.2
+%setup -q -n kmenuedit-5.19.4
+cd %{_builddir}/kmenuedit-5.19.4
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1592940196
+export SOURCE_DATE_EPOCH=1597640151
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -90,15 +90,15 @@ export FCFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export FFLAGS="$FFLAGS -O3 -ffat-lto-objects -flto=4 "
 export CXXFLAGS="$CXXFLAGS -O3 -ffat-lto-objects -flto=4 "
 %cmake ..
-make  %{?_smp_mflags}  VERBOSE=1
+make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1592940196
+export SOURCE_DATE_EPOCH=1597640151
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
-cp %{_builddir}/kmenuedit-5.19.2/COPYING %{buildroot}/usr/share/package-licenses/kmenuedit/7c203dee3a03037da436df03c4b25b659c073976
-cp %{_builddir}/kmenuedit-5.19.2/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmenuedit/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
+cp %{_builddir}/kmenuedit-5.19.4/COPYING %{buildroot}/usr/share/package-licenses/kmenuedit/7c203dee3a03037da436df03c4b25b659c073976
+cp %{_builddir}/kmenuedit-5.19.4/COPYING.DOC %{buildroot}/usr/share/package-licenses/kmenuedit/bd75d59f9d7d9731bfabdc48ecd19e704d218e38
 pushd clr-build
 %make_install
 popd
@@ -133,7 +133,6 @@ popd
 /usr/share/doc/HTML/ca/kmenuedit/index.docbook
 /usr/share/doc/HTML/ca/kmenuedit/itemname.png
 /usr/share/doc/HTML/ca/kmenuedit/new.png
-/usr/share/doc/HTML/ca/kmenuedit/reset.png
 /usr/share/doc/HTML/ca/kmenuedit/selecticon.png
 /usr/share/doc/HTML/ca/kmenuedit/selectinternet.png
 /usr/share/doc/HTML/de/kmenuedit/index.cache.bz2
