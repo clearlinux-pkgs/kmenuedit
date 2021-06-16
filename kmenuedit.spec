@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xEC94D18F7F05997E (jr@jriddell.org)
 #
 Name     : kmenuedit
-Version  : 5.22.0
-Release  : 48
-URL      : https://download.kde.org/stable/plasma/5.22.0/kmenuedit-5.22.0.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.22.0/kmenuedit-5.22.0.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.22.0/kmenuedit-5.22.0.tar.xz.sig
+Version  : 5.22.1
+Release  : 49
+URL      : https://download.kde.org/stable/plasma/5.22.1/kmenuedit-5.22.1.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.22.1/kmenuedit-5.22.1.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.22.1/kmenuedit-5.22.1.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : GFDL-1.2 GPL-2.0
@@ -70,15 +70,15 @@ locales components for the kmenuedit package.
 
 
 %prep
-%setup -q -n kmenuedit-5.22.0
-cd %{_builddir}/kmenuedit-5.22.0
+%setup -q -n kmenuedit-5.22.1
+cd %{_builddir}/kmenuedit-5.22.1
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1623393074
+export SOURCE_DATE_EPOCH=1623811067
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,12 +94,12 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1623393074
+export SOURCE_DATE_EPOCH=1623811067
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
-cp %{_builddir}/kmenuedit-5.22.0/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kmenuedit/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
-cp %{_builddir}/kmenuedit-5.22.0/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kmenuedit/3e8971c6c5f16674958913a94a36b1ea7a00ac46
-cp %{_builddir}/kmenuedit-5.22.0/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmenuedit/e712eadfab0d2357c0f50f599ef35ee0d87534cb
+cp %{_builddir}/kmenuedit-5.22.1/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kmenuedit/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
+cp %{_builddir}/kmenuedit-5.22.1/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kmenuedit/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+cp %{_builddir}/kmenuedit-5.22.1/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmenuedit/e712eadfab0d2357c0f50f599ef35ee0d87534cb
 pushd clr-build
 %make_install
 popd
