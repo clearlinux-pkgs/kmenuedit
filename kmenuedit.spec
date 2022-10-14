@@ -5,14 +5,14 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kmenuedit
-Version  : 5.25.5
-Release  : 69
-URL      : https://download.kde.org/stable/plasma/5.25.5/kmenuedit-5.25.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.25.5/kmenuedit-5.25.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.25.5/kmenuedit-5.25.5.tar.xz.sig
+Version  : 5.26.0
+Release  : 70
+URL      : https://download.kde.org/stable/plasma/5.26.0/kmenuedit-5.26.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.26.0/kmenuedit-5.26.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.26.0/kmenuedit-5.26.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
-License  : GFDL-1.2 GPL-2.0
+License  : CC0-1.0 GPL-2.0
 Requires: kmenuedit-bin = %{version}-%{release}
 Requires: kmenuedit-data = %{version}-%{release}
 Requires: kmenuedit-license = %{version}-%{release}
@@ -22,7 +22,6 @@ BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kdoctools-dev
 BuildRequires : kglobalaccel-dev
-BuildRequires : ki18n-dev
 
 %description
 No detailed description available
@@ -70,15 +69,15 @@ locales components for the kmenuedit package.
 
 
 %prep
-%setup -q -n kmenuedit-5.25.5
-cd %{_builddir}/kmenuedit-5.25.5
+%setup -q -n kmenuedit-5.26.0
+cd %{_builddir}/kmenuedit-5.26.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1662501272
+export SOURCE_DATE_EPOCH=1665716735
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -94,10 +93,10 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1662501272
+export SOURCE_DATE_EPOCH=1665716735
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
-cp %{_builddir}/kmenuedit-%{version}/LICENSES/GFDL-1.2-or-later.txt %{buildroot}/usr/share/package-licenses/kmenuedit/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc || :
+cp %{_builddir}/kmenuedit-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kmenuedit/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
 cp %{_builddir}/kmenuedit-%{version}/LICENSES/GPL-2.0-only.txt %{buildroot}/usr/share/package-licenses/kmenuedit/3e8971c6c5f16674958913a94a36b1ea7a00ac46 || :
 cp %{_builddir}/kmenuedit-%{version}/LICENSES/GPL-2.0-or-later.txt %{buildroot}/usr/share/package-licenses/kmenuedit/e712eadfab0d2357c0f50f599ef35ee0d87534cb || :
 pushd clr-build
@@ -189,8 +188,8 @@ popd
 %files license
 %defattr(0644,root,root,0755)
 /usr/share/package-licenses/kmenuedit/3e8971c6c5f16674958913a94a36b1ea7a00ac46
+/usr/share/package-licenses/kmenuedit/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0
 /usr/share/package-licenses/kmenuedit/e712eadfab0d2357c0f50f599ef35ee0d87534cb
-/usr/share/package-licenses/kmenuedit/ee03d68f6be20b170e5ea5d114d6acafb3f2d1dc
 
 %files locales -f kmenuedit.lang
 %defattr(-,root,root,-)
