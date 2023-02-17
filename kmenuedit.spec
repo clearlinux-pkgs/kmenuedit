@@ -5,11 +5,11 @@
 # Source0 file verified with key 0xD7574483BB57B18D (jr@jriddell.org)
 #
 Name     : kmenuedit
-Version  : 5.26.5
-Release  : 75
-URL      : https://download.kde.org/stable/plasma/5.26.5/kmenuedit-5.26.5.tar.xz
-Source0  : https://download.kde.org/stable/plasma/5.26.5/kmenuedit-5.26.5.tar.xz
-Source1  : https://download.kde.org/stable/plasma/5.26.5/kmenuedit-5.26.5.tar.xz.sig
+Version  : 5.27.0
+Release  : 76
+URL      : https://download.kde.org/stable/plasma/5.27.0/kmenuedit-5.27.0.tar.xz
+Source0  : https://download.kde.org/stable/plasma/5.27.0/kmenuedit-5.27.0.tar.xz
+Source1  : https://download.kde.org/stable/plasma/5.27.0/kmenuedit-5.27.0.tar.xz.sig
 Summary  : No detailed summary available
 Group    : Development/Tools
 License  : CC0-1.0 GPL-2.0
@@ -21,6 +21,9 @@ BuildRequires : buildreq-cmake
 BuildRequires : buildreq-kde
 BuildRequires : extra-cmake-modules-data
 BuildRequires : kglobalaccel-dev
+BuildRequires : kio-dev
+BuildRequires : kwindowsystem-dev
+BuildRequires : pkgconfig(x11)
 # Suppress stripping binaries
 %define __strip /bin/true
 %define debug_package %{nil}
@@ -71,15 +74,15 @@ locales components for the kmenuedit package.
 
 
 %prep
-%setup -q -n kmenuedit-5.26.5
-cd %{_builddir}/kmenuedit-5.26.5
+%setup -q -n kmenuedit-5.27.0
+cd %{_builddir}/kmenuedit-5.27.0
 
 %build
 export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1673295361
+export SOURCE_DATE_EPOCH=1676670757
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -95,7 +98,7 @@ make  %{?_smp_mflags}
 popd
 
 %install
-export SOURCE_DATE_EPOCH=1673295361
+export SOURCE_DATE_EPOCH=1676670757
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
 cp %{_builddir}/kmenuedit-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kmenuedit/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
@@ -148,6 +151,10 @@ popd
 /usr/share/doc/HTML/en/kmenuedit/reset.png
 /usr/share/doc/HTML/en/kmenuedit/selecticon.png
 /usr/share/doc/HTML/en/kmenuedit/selectinternet.png
+/usr/share/doc/HTML/es/kmenuedit/index.cache.bz2
+/usr/share/doc/HTML/es/kmenuedit/index.docbook
+/usr/share/doc/HTML/fr/kmenuedit/index.cache.bz2
+/usr/share/doc/HTML/fr/kmenuedit/index.docbook
 /usr/share/doc/HTML/id/kmenuedit/index.cache.bz2
 /usr/share/doc/HTML/id/kmenuedit/index.docbook
 /usr/share/doc/HTML/it/kmenuedit/done.png
