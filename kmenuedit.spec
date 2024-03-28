@@ -9,7 +9,7 @@
 #
 Name     : kmenuedit
 Version  : 6.0.3
-Release  : 95
+Release  : 96
 URL      : https://download.kde.org/stable/plasma/6.0.3/kmenuedit-6.0.3.tar.xz
 Source0  : https://download.kde.org/stable/plasma/6.0.3/kmenuedit-6.0.3.tar.xz
 Source1  : https://download.kde.org/stable/plasma/6.0.3/kmenuedit-6.0.3.tar.xz.sig
@@ -86,7 +86,7 @@ export http_proxy=http://127.0.0.1:9/
 export https_proxy=http://127.0.0.1:9/
 export no_proxy=localhost,127.0.0.1,0.0.0.0
 export LANG=C.UTF-8
-export SOURCE_DATE_EPOCH=1711640386
+export SOURCE_DATE_EPOCH=1711665986
 mkdir -p clr-build
 pushd clr-build
 export GCC_IGNORE_WERROR=1
@@ -147,7 +147,7 @@ FFLAGS="$CLEAR_INTERMEDIATE_FFLAGS"
 FCFLAGS="$CLEAR_INTERMEDIATE_FCFLAGS"
 ASFLAGS="$CLEAR_INTERMEDIATE_ASFLAGS"
 LDFLAGS="$CLEAR_INTERMEDIATE_LDFLAGS"
-export SOURCE_DATE_EPOCH=1711640386
+export SOURCE_DATE_EPOCH=1711665986
 rm -rf %{buildroot}
 mkdir -p %{buildroot}/usr/share/package-licenses/kmenuedit
 cp %{_builddir}/kmenuedit-%{version}/LICENSES/CC0-1.0.txt %{buildroot}/usr/share/package-licenses/kmenuedit/82da472f6d00dc5f0a651f33ebb320aa9c7b08d0 || :
